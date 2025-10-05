@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))] 
 public class Movement : MonoBehaviour
@@ -14,6 +15,13 @@ public class Movement : MonoBehaviour
     private Rigidbody2D _rb;
     private bool isGrounded;
     private UnityEngine.Vector3 nullposition;
+
+
+    public void RestartScene()
+    {
+        Scene thisScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(thisScene.name);
+    }
 
     private void Awake()
     {
@@ -55,7 +63,7 @@ public class Movement : MonoBehaviour
         }
         if (other.gameObject.CompareTag(enemyTag))
         {
-            gameObject.transform.position = nullposition;
+            RestartScene();
         }
     }
     private void OnCollisionExit2D(Collision2D other)
