@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
@@ -6,7 +7,11 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private double time;
     [SerializeField] private string damageTag;
     [SerializeField] private int health;
-    private int areFlipped = 1; 
+    [SerializeField] private GameObject lootPrefab;
+    [SerializeField] private GameObject lootPrefab2;
+    [SerializeField] private GameObject lootPrefab3;
+    private int rand;
+    private int areFlipped = 1;
     private Rigidbody2D _rb;
     private double startTime;
 
@@ -39,7 +44,13 @@ public class EnemyMovement : MonoBehaviour
         { health -= 1;
             if (health <= 0)
             {
-                gameObject.SetActive(false);
+                rand = Random.Range(0, 6);
+                if (rand < 3)
+                { Instantiate(lootPrefab, gameObject.transform.position, Quaternion.identity); }
+                else if (rand < 5)
+                { Instantiate(lootPrefab2, gameObject.transform.position, Quaternion.identity); }
+                else { Instantiate(lootPrefab3, gameObject.transform.position, Quaternion.identity); }
+                Destroy(gameObject);
             }
         }
     }
