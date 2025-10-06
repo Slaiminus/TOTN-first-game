@@ -6,6 +6,7 @@ using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
 
 [RequireComponent(typeof(Rigidbody2D))] 
 public class PlayerLogic : MonoBehaviour
@@ -20,6 +21,7 @@ public class PlayerLogic : MonoBehaviour
     [SerializeField] private Button button1;
     [SerializeField] private Button button2;
     [SerializeField] private shoot shoot;
+
 
     public int health;
 
