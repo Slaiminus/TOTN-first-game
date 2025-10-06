@@ -6,6 +6,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private double time;
     [SerializeField] private string damageTag;
     [SerializeField] private int health;
+    [SerializeField] private GameObject lootPrefab;
     private int areFlipped = 1; 
     private Rigidbody2D _rb;
     private double startTime;
@@ -39,7 +40,8 @@ public class EnemyMovement : MonoBehaviour
         { health -= 1;
             if (health <= 0)
             {
-                gameObject.SetActive(false);
+                Instantiate(lootPrefab, gameObject.transform.position, Quaternion.identity);
+                Destroy(gameObject);
             }
         }
     }
