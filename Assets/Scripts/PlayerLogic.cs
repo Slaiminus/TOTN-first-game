@@ -10,9 +10,11 @@ public class Movement : MonoBehaviour
     [SerializeField] private float jumpForce;
     [SerializeField] private string groundTag;
     [SerializeField] private string enemyTag;
+    [SerializeField] private int health;
 
     private Rigidbody2D _rb;
     private bool isGrounded;
+    private UnityEngine.Vector3 nullposition;
 
 
     public void RestartScene()
@@ -24,6 +26,7 @@ public class Movement : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        nullposition = transform.position;
     }
 
     private void Update()
@@ -51,7 +54,15 @@ public class Movement : MonoBehaviour
         }
         if (other.gameObject.CompareTag(enemyTag))
         {
-            RestartScene();
+            health -= 1;
+            if (health <= 0)
+            {
+                RestartScene();
+            }
+            else
+            {
+                gameObject.transform.position = nullposition;
+            }
         }
     }
     private void OnCollisionExit2D(Collision2D other)

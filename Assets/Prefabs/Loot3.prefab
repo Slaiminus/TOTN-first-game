@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -1229764323461603365}
   - component: {fileID: -3933892841049724113}
   - component: {fileID: -9009709681787347383}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Loot3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

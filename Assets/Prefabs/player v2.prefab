@@ -186,6 +186,7 @@ MonoBehaviour:
   jumpForce: 5
   groundTag: Ground
   enemyTag: Enemy
+  health: 3
 --- !u!114 &6948206451366256148
 MonoBehaviour:
   m_ObjectHideFlags: 0
