@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7085960229329490806}
   - component: {fileID: 7569467748184111041}
   - component: {fileID: 6948206451366256148}
+  - component: {fileID: 3773542284787273013}
   m_Layer: 3
   m_Name: player v2
   m_TagString: Player
@@ -186,6 +187,11 @@ MonoBehaviour:
   jumpForce: 5
   groundTag: Ground
   enemyTag: Enemy
+  maxhealth: 5
+  counter: {fileID: 0}
+  hpbar: {fileID: 0}
+  button1: {fileID: 0}
+  button2: {fileID: 0}
   health: 3
 --- !u!114 &6948206451366256148
 MonoBehaviour:
@@ -202,6 +208,18 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8156780474428886919, guid: 37944b82c7b8c5b4db247caf58694d26, type: 3}
   firePoint: {fileID: 8575310169929350228}
   speed: 10
+--- !u!114 &3773542284787273013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264508689812633963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7546623a923b705448f291c99558d008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::lootcounter
 --- !u!1 &4780585399222527574
 GameObject:
   m_ObjectHideFlags: 0

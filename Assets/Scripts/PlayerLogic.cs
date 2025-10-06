@@ -1,16 +1,28 @@
+using System;
+using System.Collections;
+using TMPro;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))] 
-public class Movement : MonoBehaviour
+public class PlayerLogic : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
     [SerializeField] private string groundTag;
     [SerializeField] private string enemyTag;
-    [SerializeField] private int health;
+    [SerializeField] public int maxhealth;
+    [SerializeField] private TMP_Text counter;
+    [SerializeField] private Slider hpbar;
+    [SerializeField] private Button button1;
+    [SerializeField] private Button button2;
+    [SerializeField] private shoot shoot;
+
+    public int health;
+
 
     private Rigidbody2D _rb;
     private bool isGrounded;
@@ -25,6 +37,7 @@ public class Movement : MonoBehaviour
 
     private void Awake()
     {
+        health = maxhealth;
         _rb = GetComponent<Rigidbody2D>();
         nullposition = transform.position;
     }
@@ -33,8 +46,26 @@ public class Movement : MonoBehaviour
     {
         Jump();
         Move();
+        settings();
     }
-
+    public bool paused; 
+    public void setpaused(bool paused) 
+    { 
+        this.paused = paused;
+    }
+    private void settings()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            paused = !paused;
+        }
+        Time.timeScale = paused ? 0.0f : 1.0f;
+        counter.gameObject.SetActive(!paused);
+        hpbar.gameObject.SetActive(!paused);
+        shoot.enabled = !paused;
+        button1.gameObject.SetActive(paused);
+        button2.gameObject.SetActive(paused);
+    }
     private void Move()
     {
         _rb.linearVelocityX = Input.GetAxis("Horizontal") * speed;
@@ -54,6 +85,7 @@ public class Movement : MonoBehaviour
         }
         if (other.gameObject.CompareTag(enemyTag))
         {
+
             health -= 1;
             if (health <= 0)
             {

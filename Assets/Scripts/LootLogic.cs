@@ -22,7 +22,7 @@ public class LootLogic : MonoBehaviour
     {
         if (other.gameObject.CompareTag(playerTag))
         {
-            // TODO: Player Score += lootValue, maybe do more
+            other.gameObject.GetComponent<lootcounter>().addcount();
             Destroy(gameObject);
         }
     }

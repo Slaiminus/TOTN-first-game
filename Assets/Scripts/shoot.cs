@@ -6,11 +6,13 @@ public class shoot : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
     [SerializeField] private float speed = 20f;
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition); mouseWorldPos.z = 0f; Vector2 mousePos = mouseWorldPos;
+            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition); mouseWorldPos.z = 0f; 
+            Vector2 mousePos = mouseWorldPos;
             Vector2 direction = (mousePos - (Vector2)firePoint.position).normalized;
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>(); 
