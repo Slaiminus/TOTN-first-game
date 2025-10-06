@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7085960229329490806}
   - component: {fileID: 7569467748184111041}
   - component: {fileID: 6948206451366256148}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: player v2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
   speed: 5
-  jumpForce: 1
+  jumpForce: 5
   groundTag: Ground
   enemyTag: Enemy
 --- !u!114 &6948206451366256148
@@ -200,6 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::shoot
   bulletPrefab: {fileID: 8156780474428886919, guid: 37944b82c7b8c5b4db247caf58694d26, type: 3}
   firePoint: {fileID: 8575310169929350228}
+  speed: 10
 --- !u!1 &4780585399222527574
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,7 +213,7 @@ GameObject:
   - component: {fileID: 6120584753747182329}
   - component: {fileID: 1244629067244820455}
   - component: {fileID: 547981062159342047}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -347,7 +348,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6651801409726492393}
   - component: {fileID: 4429083024859951134}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -438,7 +439,7 @@ GameObject:
   - component: {fileID: 6289986086340593362}
   - component: {fileID: 6710348745905147672}
   - component: {fileID: 2723503931867011992}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Circle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -543,7 +544,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8575310169929350228}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: firepoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -558,13 +559,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6521295790851088807}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 5.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6289986086340593362}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1001 &4461277819071535689
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -616,6 +617,10 @@ PrefabInstance:
     - target: {fileID: 8566887589815921054, guid: 2822734ffb05a26419ec4210ce623fca, type: 3}
       propertyPath: m_Name
       value: crosshair
+      objectReference: {fileID: 0}
+    - target: {fileID: 8566887589815921054, guid: 2822734ffb05a26419ec4210ce623fca, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
