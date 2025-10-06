@@ -31,9 +31,9 @@ public class EnemyMovement : MonoBehaviour
         {
             areFlipped *= -1;
             time = startTime;
-            if (gameObject.transform.localScale.y > 0)
-            { gameObject.transform.localScale = gameObject.transform.localScale + Vector3.up * -2; }
-            else { gameObject.transform.localScale = gameObject.transform.localScale + Vector3.up * 2; }
+            if (gameObject.transform.localScale.x > 0)
+            { gameObject.transform.localScale = gameObject.transform.localScale + Vector3.right * -2; }
+            else { gameObject.transform.localScale = gameObject.transform.localScale + Vector3.right * 2; }
         }
 
     }

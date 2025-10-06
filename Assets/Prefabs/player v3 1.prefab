@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
   speed: 5
-  jumpForce: 5
+  jumpForce: 10
   groundTag: Ground
   enemyTag: Enemy
   maxhealth: 5
