@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -1638172157174752075}
   m_Layer: 0
   m_Name: Loot2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6060327258436527170}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.13601, y: 1.40212, z: 0}
+  m_LocalPosition: {x: 1, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -152,7 +152,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Size: {x: 1, y: 0.8828125}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 1
 --- !u!50 &-1638172157174752075
 Rigidbody2D:
   serializedVersion: 5
