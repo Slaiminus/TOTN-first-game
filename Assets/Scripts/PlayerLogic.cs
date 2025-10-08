@@ -18,9 +18,11 @@ public class PlayerLogic : MonoBehaviour
     [SerializeField] public int maxhealth;
     [SerializeField] private TMP_Text counter;
     [SerializeField] private Slider hpbar;
-    [SerializeField] private Button button1;
     [SerializeField] private Button button2;
     [SerializeField] private shoot shoot;
+    [SerializeField] private GameObject walk;
+    [SerializeField] private GameObject idle;
+    [SerializeField] private GameObject jump;
 
 
     public int health;
@@ -29,6 +31,7 @@ public class PlayerLogic : MonoBehaviour
     private Rigidbody2D _rb;
     private bool isGrounded;
     private UnityEngine.Vector3 nullposition;
+    private float old_pos;
 
 
     public void RestartScene()
@@ -49,6 +52,8 @@ public class PlayerLogic : MonoBehaviour
         Jump();
         Move();
         settings();
+        animate();
+        old_pos = transform.position.x;
     }
     public bool paused; 
     public void setpaused(bool paused) 
@@ -65,10 +70,41 @@ public class PlayerLogic : MonoBehaviour
         counter.gameObject.SetActive(!paused);
         hpbar.gameObject.SetActive(!paused);
         shoot.enabled = !paused;
-        button1.gameObject.SetActive(paused);
         button2.gameObject.SetActive(paused);
     }
-    private void Move()
+    public void animate()
+    {
+        if (!paused)
+        {
+            if (0 == 0)
+            {
+
+            }
+            if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)))
+            {
+                if (isGrounded != true)
+                {
+                    walk.gameObject.SetActive(true);
+                    idle.gameObject.SetActive(false);
+                    jump.gameObject.SetActive(false);
+                }
+            }
+            if (isGrounded == false)
+            {
+                walk.gameObject.SetActive(false);
+                idle.gameObject.SetActive(false);
+                jump.gameObject.SetActive(true);
+            }
+            else
+            {
+                walk.gameObject.SetActive(false);
+                idle.gameObject.SetActive(true);
+                jump.gameObject.SetActive(false);
+            }
+
+        }
+    }
+    public void Move()
     {
         _rb.linearVelocityX = Input.GetAxis("Horizontal") * speed;
     }
